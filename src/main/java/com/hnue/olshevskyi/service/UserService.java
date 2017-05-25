@@ -28,4 +28,8 @@ public class UserService {
                 roleDao.findByRole("MANAGER"), false));
     }
 
+    public User findUserById(long id) {
+        return userDao.findOne(id);
+    }
+
 }

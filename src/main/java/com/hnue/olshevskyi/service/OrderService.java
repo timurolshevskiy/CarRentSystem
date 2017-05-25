@@ -8,6 +8,8 @@ import com.hnue.olshevskyi.model.OrderBill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderService {
 
@@ -26,8 +28,8 @@ public class OrderService {
                 carService.getCarById(orderDto.getCarId())));
     }
 
-    public OrderBill createBill(Order order) {
-        return orderBillDao.save(new OrderBill(0, "", order, false));
+    private OrderBill createBill(Order order) {
+        return orderBillDao.save(new OrderBill(0, "", order, order.getTermDays() * order.getCar().getPricePerDay(), false));
     }
 
     public OrderBill payForBill(long id) {
@@ -36,11 +38,12 @@ public class OrderService {
         return orderBillDao.save(bill);
     }
 
-    public Order confirmOrder(long id) {
+    public OrderBill confirmOrder(long id) {
         Order order = orderDao.findOne(id);
         order.setStatus("In progress");
         order.getCar().setAvailable(false);
-        return orderDao.save(order);
+        orderDao.save(order);
+        return createBill(order);
     }
 
     public Order completeOrder(long id) {
@@ -49,9 +52,9 @@ public class OrderService {
         return orderDao.save(order);
     }
 
-    public OrderBill billForDamages(long orderId) {
+    public OrderBill billForDamages(long orderId, double cost) {
         Order order = orderDao.findOne(orderId);
-        return orderBillDao.save(new OrderBill(0, "", order, false));
+        return orderBillDao.save(new OrderBill(0, "", order, cost, false));
     }
 
     public Order cancelOrder(long id, String reason) {
@@ -59,6 +62,14 @@ public class OrderService {
         order.setStatus("Cancelled");
         order.setDescription(reason);
         return orderDao.save(order);
+    }
+
+    public Order findOrderById(long id) {
+        return orderDao.findOne(id);
+    }
+
+    public List<OrderBill> findBillsForOrder(Order order) {
+        return orderBillDao.findByOrder(order);
     }
 
 }

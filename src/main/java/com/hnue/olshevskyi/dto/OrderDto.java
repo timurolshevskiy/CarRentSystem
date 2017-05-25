@@ -18,6 +18,10 @@ public class OrderDto {
 
     private long carId;
 
+    public OrderDto() {
+
+    }
+
     public OrderDto(String description, int termDays, boolean withDriver, String passportSeries, String passportNumber, User user, long carId) {
         this.description = description;
         this.termDays = termDays;

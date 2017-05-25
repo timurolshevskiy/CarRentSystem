@@ -31,14 +31,14 @@ public class InitListener implements ApplicationListener<ContextRefreshedEvent> 
         Role manager = roleDao.save(new Role(0, "MANAGER"));
         Role admin = roleDao.save(new Role(0, "ADMIN"));
 
-        userDao.save(new User(0, "admin", "admin", "admin", admin, false));
-        userDao.save(new User(0, "manager", "manager", "manager", manager, false));
-        userDao.save(new User(0, "client", "client", "client", client, false));
+        userDao.save(new User(0, "admin", "admin", "admin", "admin", "admin", admin, false));
+        userDao.save(new User(0, "manager", "manager", "manager", "manager", "manager", manager, false));
+        userDao.save(new User(0, "client", "client", "client", "client", "client", client, false));
 
-        carDao.save(new Car(0, "A6", "High", "Audi", 15.3));
-        carDao.save(new Car(0, "A6", "High", "Audi", 15.3));
-        carDao.save(new Car(0, "A6", "High", "Audi", 15.3));
-        carDao.save(new Car(0, "A6", "High", "Audi", 15.3));
-        carDao.save(new Car(0, "A6", "High", "Audi", 15.3));
+        carDao.save(new Car(0, "A6", "High", "Audi", 15.3, true));
+        carDao.save(new Car(0, "A6", "High", "Audi", 15.3, true));
+        carDao.save(new Car(0, "A6", "High", "Audi", 15.3, true));
+        carDao.save(new Car(0, "A6", "High", "Audi", 15.3, true));
+        carDao.save(new Car(0, "A6", "High", "Audi", 15.3, true));
     }
 }
