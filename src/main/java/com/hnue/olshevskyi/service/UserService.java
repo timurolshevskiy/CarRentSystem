@@ -7,6 +7,8 @@ import com.hnue.olshevskyi.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -30,6 +32,10 @@ public class UserService {
 
     public User findUserById(long id) {
         return userDao.findOne(id);
+    }
+
+    public List<User> getAllUsers() {
+        return (List<User>) userDao.findAll();
     }
 
     public void changeBlocked(long id, boolean blocked) {
