@@ -32,4 +32,10 @@ public class UserService {
         return userDao.findOne(id);
     }
 
+    public void changeBlocked(long id, boolean blocked) {
+        User user = findUserById(id);
+        user.setBlocked(blocked);
+        userDao.save(user);
+    }
+
 }
