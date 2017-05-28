@@ -32,6 +32,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
+                .loginPage("/login")
                 .and().logout().and().csrf().disable();
     }
 
@@ -41,4 +42,6 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("select login, password, not blocked from app_user where login = ?")
                 .authoritiesByUsernameQuery("select login, r.role from app_user u join role r where login = ? and u.role = r.id");
     }
+
+
 }

@@ -24,14 +24,14 @@ public class CarService {
 
     public List<Car> getByFilterAndSort(String mark, String qualityClass, String sortBy) {
         Sort sort = new Sort(sortBy == null ? "name" : sortBy);
-        if (mark != null && qualityClass != null) {
+        if (mark != null && !mark.isEmpty() && qualityClass != null && !qualityClass.isEmpty()) {
             return carDao.findByMarkLikeAndQualityClassLike(mark, qualityClass, sort);
         }
-        if (mark != null) {
-            return carDao.findByMarkLike(mark, sort);
+        if (mark != null && !mark.isEmpty()) {
+            return carDao.findByMarkContaining(mark, sort);
         }
-        if (qualityClass != null) {
-            return carDao.findByQualityClassLike(qualityClass, sort);
+        if (qualityClass != null && !qualityClass.isEmpty()) {
+            return carDao.findByQualityClassContaining(qualityClass, sort);
         }
         return carDao.findAll(sort);
     }

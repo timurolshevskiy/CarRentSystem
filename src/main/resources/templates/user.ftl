@@ -95,7 +95,7 @@
     <div class="panel panel-orders">
         <!-- Default panel contents -->
         <div class="panel-body">
-            <h3>All users</h3>
+            <h3>Orders of <b>${user.login}</b></h3>
         </div>
 
         <!-- Table -->
@@ -103,21 +103,23 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Login</th>
-                <th>Email</th>
-                <th>First name</th>
-                <th>Last name</th>
+                <th>Car</th>
+                <th>Description</th>
+                <th>Term, days</th>
+                <th>With driver</th>
+                <th>Status</th>
             </tr>
             </thead>
             <tbody>
 
-            <#list users as tempUser>
+            <#list orders as order>
                 <tr>
-                    <th><a href="/user/userHomePage?id=${tempUser.id}">${tempUser.id}</a></th>
-                    <th>${tempUser.login}</th>
-                    <th>${tempUser.email}</th>
-                    <th>${tempUser.firstName}</th>
-                    <th>${tempUser.lastName}</th>
+                    <th><a href="/order/single?id=${order.id}">${order.id}</a></th>
+                    <th>${order.car.mark} ${order.car.name}</th>
+                    <th>${order.description}</th>
+                    <th>${order.termDays}</th>
+                    <th>${order.withDriver?c}</th>
+                    <th>${order.status}</th>
                 </tr>
             </#list>
 

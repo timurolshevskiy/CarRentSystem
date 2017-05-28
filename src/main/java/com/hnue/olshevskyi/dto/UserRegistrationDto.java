@@ -6,8 +6,6 @@ public class UserRegistrationDto {
 
     private String password;
 
-    private String passwordConfirmation;
-
     private String email;
 
     private String firstName;
@@ -18,10 +16,9 @@ public class UserRegistrationDto {
 
     }
 
-    public UserRegistrationDto(String login, String password, String passwordConfirmation, String email, String firstName, String lastName) {
+    public UserRegistrationDto(String login, String password, String email, String firstName, String lastName) {
         this.login = login;
         this.password = password;
-        this.passwordConfirmation = passwordConfirmation;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,14 +38,6 @@ public class UserRegistrationDto {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPasswordConfirmation() {
-        return passwordConfirmation;
-    }
-
-    public void setPasswordConfirmation(String passwordConfirmation) {
-        this.passwordConfirmation = passwordConfirmation;
     }
 
     public String getEmail() {

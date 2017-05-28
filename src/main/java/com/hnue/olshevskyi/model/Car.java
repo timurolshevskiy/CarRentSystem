@@ -12,6 +12,8 @@ public class Car {
 
     private String name;
 
+    private String description;
+
     private String qualityClass;
 
     private String mark;
@@ -24,9 +26,10 @@ public class Car {
 
     }
 
-    public Car(long id, String name, String qualityClass, String mark, double pricePerDay, boolean available) {
+    public Car(long id, String name, String description, String qualityClass, String mark, double pricePerDay, boolean available) {
         this.id = id;
         this.name = name;
+        this.description = description;
         this.qualityClass = qualityClass;
         this.mark = mark;
         this.pricePerDay = pricePerDay;
@@ -47,6 +50,14 @@ public class Car {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getQualityClass() {

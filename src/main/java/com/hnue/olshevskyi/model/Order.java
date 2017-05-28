@@ -1,6 +1,7 @@
 package com.hnue.olshevskyi.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "car_order")
@@ -22,6 +23,8 @@ public class Order {
 
     private String passportNumber;
 
+    private LocalDate date;
+
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "user", nullable = false)
     private User user;
@@ -34,7 +37,7 @@ public class Order {
 
     }
 
-    public Order(long id, String description, int termDays, boolean withDriver, String status, String passportSeries, String passportNumber, User user, Car car) {
+    public Order(long id, String description, int termDays, boolean withDriver, String status, String passportSeries, String passportNumber, LocalDate date, User user, Car car) {
         this.id = id;
         this.description = description;
         this.termDays = termDays;
@@ -42,6 +45,7 @@ public class Order {
         this.status = status;
         this.passportSeries = passportSeries;
         this.passportNumber = passportNumber;
+        this.date = date;
         this.user = user;
         this.car = car;
     }
@@ -100,6 +104,14 @@ public class Order {
 
     public void setPassportNumber(String passportNumber) {
         this.passportNumber = passportNumber;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public User getUser() {

@@ -15,9 +15,9 @@ public interface CarDao extends CrudRepository<Car, Long> {
 
     List<Car> findByMarkLikeAndQualityClassLike(String mark, String qualityClass, Sort sort);
 
-    List<Car> findByMarkLike(String mark, Sort sort);
+    List<Car> findByMarkContaining(String mark, Sort sort);
 
-    List<Car> findByQualityClassLike(String qualityClass, Sort sort);
+    List<Car> findByQualityClassContaining(String qualityClass, Sort sort);
 
     List<Car> findAll(Sort sort);
 }
