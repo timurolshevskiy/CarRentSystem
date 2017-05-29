@@ -140,7 +140,7 @@
                         <div class="thumbnail">
                             <img src="/img/${car.id}.jpg" alt="" style="max-height: 150px; height: 150px">
                             <div class="caption">
-                                <h4 class="pull-right">${car.pricePerDay} грн/час</h4>
+                                <h4 class="pull-right">${car.pricePerDay} uah/h</h4>
                                 <h4><a href="/car?id=${car.id}">${car.mark} ${car.name}</a>
                                 </h4>
                                 <p><b>${car.qualityClass}</b> quality</p>

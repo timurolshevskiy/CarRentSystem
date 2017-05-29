@@ -99,7 +99,7 @@
                 <div class="thumbnail" >
                     <img class="img-responsive" src="/img/${car.id}.jpg" alt="">
                     <div class="caption-full">
-                        <h4 class="pull-right">${car.pricePerDay} грн/час</h4>
+                        <h4 class="pull-right">${car.pricePerDay} uah/h</h4>
                         <h4><a href="#">${car.mark} ${car.name}</a>
                         </h4>
                         <p>${car.description}</p>

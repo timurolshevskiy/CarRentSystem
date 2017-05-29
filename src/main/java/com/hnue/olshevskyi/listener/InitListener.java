@@ -40,18 +40,26 @@ public class InitListener implements ApplicationListener<ContextRefreshedEvent> 
         userDao.save(new User(0, "manager", "manager", "manager", "manager", "manager", manager, false));
         User clientUser = userDao.save(new User(0, "client", "client", "client", "client", "client", client, false));
 
-        Car car = carDao.save(new Car(0, "A6" + 0,
+        Car car = carDao.save(new Car(0, "A6",
                 "Good car for travelling. Max speed = 200 km/h. Suites for serious people",
-                "High" + 0, "Audi" + 0, 15.3 + 10 - 0, true));
-        for (int i = 1; i < 5; i++) {
-            carDao.save(new Car(0, "A6" + i,
-                    "Good car for travelling. Max speed = 200 km/h. Suites for serious people",
-                    "High" + i, "Audi" + i, 15.3 + 10 - i, true));
-        }
+                "High", "Audi", 100, true));
+        carDao.save(new Car(0, "Lancer",
+                "Good car for travelling. Max speed = 200 km/h. Suites for serious people",
+                "Low", "Mitsubishi", 70, true));
+        carDao.save(new Car(0, "X6",
+                "Good car for travelling. Max speed = 200 km/h. Suites for serious people",
+                "Medium", "BMW", 85, true));
+        carDao.save(new Car(0, "911",
+                "Good car for travelling. Max speed = 200 km/h. Suites for serious people",
+                "High", "Porsche", 110, true));
+        carDao.save(new Car(0, "Benz",
+                "Good car for travelling. Max speed = 200 km/h. Suites for serious people",
+                "High", "Mercedes", 120, true));
 
-        Order order = orderDao.save(new Order(0, "qqq", 2, false, "In progress",
-                "re", "11", LocalDate.now(), clientUser, car));
-        orderBillDao.save(new OrderBill(0, "www", order, 150, false));
-        orderBillDao.save(new OrderBill(0, "www", order, 150, false));
+
+//        Order order = orderDao.save(new Order(0, "qqq", 2, false, "In progress",
+//                "re", "11", LocalDate.now(), clientUser, car));
+//        orderBillDao.save(new OrderBill(0, "www", order, 150, false));
+//        orderBillDao.save(new OrderBill(0, "www", order, 150, false));
     }
 }
